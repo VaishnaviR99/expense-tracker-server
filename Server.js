@@ -20,7 +20,9 @@ const uri =
 mongoose.connect(uri)
   .then(() => console.log("MongoDB connected successfully"))
   .catch((err) => console.error("MongoDB connection error:", err));
-
+  app.get('/', (req, res) => {
+    res.send('Welcome to your API!');
+  });
 app.use("/api/auth", authRoutes);
 app.use("/api/transactions", transactionRoutes);
 app.use("/api/goals", goalRoutes);
